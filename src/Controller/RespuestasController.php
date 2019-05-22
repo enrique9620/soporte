@@ -76,6 +76,7 @@ class RespuestasController extends AppController
     //     $this->set(compact('respuesta', 'bugs', 'estadopeticiones', 'users'));
     //     $this->set('_serialize', ['respuesta']);
     // }
+    //prueba git
         public function add()
     {
         $respuesta = $this->Respuestas->newEntity();
