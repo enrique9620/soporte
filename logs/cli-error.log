@@ -1,0 +1,31 @@
+2017-05-03 00:38:49 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'bugsreporter.edit' doesn't exist in C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 131
+Stack Trace:
+#0 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'edit', Array, Object(Cake\Database\Schema\TableSchema))
+#1 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('edit', Array)
+#2 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\cakephp\src\ORM\Table.php(531): Cake\Database\Schema\CachedCollection->describe('edit')
+#3 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\cakephp\src\ORM\Table.php(652): Cake\ORM\Table->getSchema()
+#4 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php(291): Cake\ORM\Table->getPrimaryKey()
+#5 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php(413): Bake\Shell\Task\TemplateTask->_loadController()
+#6 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php(388): Bake\Shell\Task\TemplateTask->getContent('bugs')
+#7 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php(145): Bake\Shell\Task\TemplateTask->bake('bugs', true)
+#8 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\cakephp\src\Console\Shell.php(472): Bake\Shell\Task\TemplateTask->main('edit', 'bugs')
+#9 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\cakephp\src\Console\Shell.php(465): Cake\Console\Shell->runCommand(Array, false, Array)
+#10 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(230): Cake\Console\Shell->runCommand(Array, true, Array)
+#11 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#12 C:\xampp2\htdocs\sistemaSoporte\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#13 C:\xampp2\htdocs\sistemaSoporte\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#14 {main}
+
+
+2019-05-07 13:37:58 Error: [Cake\Console\Exception\MissingShellException] Shell class for "Model" could not be found. in C:\xampp\htdocs\soporteRemake\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php on line 327
+Exception Attributes: array (
+  'class' => 'Model',
+)
+Stack Trace:
+#0 C:\xampp\htdocs\soporteRemake\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(226): Cake\Console\ShellDispatcher->findShell('Model')
+#1 C:\xampp\htdocs\soporteRemake\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#2 C:\xampp\htdocs\soporteRemake\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#3 C:\xampp\htdocs\soporteRemake\bin\cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#4 {main}
+
+
