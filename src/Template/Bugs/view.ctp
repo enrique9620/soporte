@@ -57,7 +57,7 @@
 <div class="modal fade" id="Modal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                <?= $this->Form->create(null,[ 'type' => 'post', 'url' => ['controller' => 'Respuestas','action' => 'add']]) ?>
+                <?= $this->Form->create(null,[ 'enctype' => 'multipart/form-data','type' => 'post', 'url' => ['controller' => 'Respuestas','action' => 'add']]) ?>
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Respuesta</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -69,8 +69,8 @@
                         <?php echo $this->Form->input('descripcion',array('class'=>'form-control','label'=>'','type' => 'textarea','required', 'data-validate-func' => 'required', 'data-validate-hint' => "Este campo es requerido", 'data-validate-hint-position' => 'top', 'placeholder'=>'Descripción','maxlength'=>'1024','type' => 'textarea'));?>
                     </div>
                     <div class="modal-body">
-                    	<label>Captura</label>
-                        <!-- <?php //echo $this->Form->control('imagen_res', ['label'=>false,'type'=>'file', 'accept'=>'.jpeg, .png, .jpg', 'name'=>'imagen_res']); ?> -->
+                    	<label>Captura</label>  
+                         <?php echo $this->Form->control('imagen_nueva', ['label'=>[],'type'=>'file']); ?>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

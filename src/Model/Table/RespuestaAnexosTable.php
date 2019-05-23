@@ -41,8 +41,7 @@ class RespuestaAnexosTable extends Table
         $this->addBehavior('Timestamp');
 
         $this->belongsTo('Respuestas', [
-            'foreignKey' => 'respuesta_id',
-            'joinType' => 'INNER'
+            'foreignKey' => 'respuesta_id'
         ]);
     }
 
@@ -63,12 +62,10 @@ class RespuestaAnexosTable extends Table
             ->notEmpty('imagen');
 
         $validator
-            ->requirePresence('tipo', 'create')
-            ->notEmpty('tipo');
+            ->allowEmpty('tipo');
 
         $validator
-            ->requirePresence('tamano', 'create')
-            ->notEmpty('tamano');
+            ->allowEmpty('tamano');
 
         return $validator;
     }
