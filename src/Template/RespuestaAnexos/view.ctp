@@ -1,5 +1,5 @@
 <?php
-/**
+/** 
   * @var \App\View\AppView $this
   * @var \App\Model\Entity\RespuestaAnexo $respuestaAnexo
   */
@@ -17,34 +17,12 @@
 </nav>
 <div class="respuestaAnexos view large-9 medium-8 columns content">
     <h3><?= h($respuestaAnexo->id) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= h($respuestaAnexo->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Tipo') ?></th>
-            <td><?= h($respuestaAnexo->tipo) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Tamano') ?></th>
-            <td><?= h($respuestaAnexo->tamano) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Respuesta') ?></th>
-            <td><?= $respuestaAnexo->has('respuesta') ? $this->Html->link($respuestaAnexo->respuesta->id, ['controller' => 'Respuestas', 'action' => 'view', $respuestaAnexo->respuesta->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($respuestaAnexo->created) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Modified') ?></th>
-            <td><?= h($respuestaAnexo->modified) ?></td>
-        </tr>
     </table>
-    <div class="row">
+    <div class="row" >
         <h4><?= __('Imagen') ?></h4>
-        <?= $this->Text->autoParagraph(h($respuestaAnexo->imagen)); ?>
+        
+    </div>
+    <div class="row" >
+        <img src="<?php echo $respuestaAnexo->imagen ?>" style="height:auto; width: auto;">
     </div>
 </div>

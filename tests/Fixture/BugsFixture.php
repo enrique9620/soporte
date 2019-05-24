@@ -20,6 +20,7 @@ class BugsFixture extends TestFixture
         'id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'sistema_id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
         'users_id' => ['type' => 'uuid', 'length' => null, 'null' => false, 'default' => null, 'comment' => '', 'precision' => null],
+        'estdopeticiones_id' => ['type' => 'uuid', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
         'asunto' => ['type' => 'string', 'length' => 45, 'null' => true, 'default' => 'Sin asunto', 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'descripcion' => ['type' => 'string', 'length' => 1024, 'null' => true, 'default' => null, 'collate' => 'utf8_spanish_ci', 'comment' => '', 'precision' => null, 'fixed' => null],
         'usuarioid' => ['type' => 'uuid', 'length' => null, 'null' => true, 'default' => null, 'comment' => '', 'precision' => null],
@@ -38,10 +39,12 @@ class BugsFixture extends TestFixture
         '_indexes' => [
             'fk_bugs_sistemas_idx' => ['type' => 'index', 'columns' => ['sistema_id'], 'length' => []],
             'users_id' => ['type' => 'index', 'columns' => ['users_id'], 'length' => []],
+            'estdopeticiones_id' => ['type' => 'index', 'columns' => ['estdopeticiones_id'], 'length' => []],
         ],
         '_constraints' => [
             'primary' => ['type' => 'primary', 'columns' => ['id'], 'length' => []],
             'bugs_ibfk_1' => ['type' => 'foreign', 'columns' => ['users_id'], 'references' => ['users', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
+            'bugs_ibfk_2' => ['type' => 'foreign', 'columns' => ['estdopeticiones_id'], 'references' => ['estadopeticiones', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
             'fk_bugs_sistemas' => ['type' => 'foreign', 'columns' => ['sistema_id'], 'references' => ['sistemas', 'id'], 'update' => 'noAction', 'delete' => 'noAction', 'length' => []],
         ],
         '_options' => [
@@ -58,24 +61,25 @@ class BugsFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '5313a3e7-0575-4c04-855a-191f6e509707',
-            'sistema_id' => 'fd0b6f2b-c77d-4e90-a4ce-c8d959f8e0e0',
-            'users_id' => 'd06a26da-1121-4001-8170-de997bac4fae',
+            'id' => '8242c9b3-b106-4547-b2cf-25bac5ef2d06',
+            'sistema_id' => '5f858d3c-ad6c-4434-905f-814909bbfd9a',
+            'users_id' => 'd1c8bc2c-8b50-4111-b54c-ad6a719ec5c3',
+            'estdopeticiones_id' => '1231975b-5bb3-4325-8ab2-36c7bae514ff',
             'asunto' => 'Lorem ipsum dolor sit amet',
             'descripcion' => 'Lorem ipsum dolor sit amet',
-            'usuarioid' => '2dc6ba37-a8ce-4360-a95a-67fb252f2c55',
+            'usuarioid' => 'f8fee876-f158-46f7-a80e-0cc4712b17d2',
             'username' => 'Lorem ipsum dolor sit amet',
             'nombre' => 'Lorem ipsum dolor sit amet',
             'telefono' => 'Lorem ip',
             'correo' => 'Lorem ipsum dolor sit amet',
             'sistemaoperativo' => 'Lorem ipsum dolor sit amet',
             'navegador' => 'Lorem ipsum dolor sit amet',
-            'fecha_inicio' => '2019-05-07 16:21:38',
-            'fecha_fin' => '2019-05-07 16:21:38',
+            'fecha_inicio' => '2019-05-24 11:39:29',
+            'fecha_fin' => '2019-05-24 11:39:29',
             'leido' => 1,
             'activo' => 1,
-            'created' => '2019-05-07 16:21:38',
-            'modified' => '2019-05-07 16:21:38'
+            'created' => '2019-05-24 11:39:29',
+            'modified' => '2019-05-24 11:39:29'
         ],
     ];
 }

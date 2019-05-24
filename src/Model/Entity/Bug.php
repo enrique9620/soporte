@@ -9,6 +9,7 @@ use Cake\ORM\Entity;
  * @property string $id
  * @property string $sistema_id
  * @property string $users_id
+ * @property string $estdopeticiones_id
  * @property string $asunto
  * @property string $descripcion
  * @property string $usuarioid
@@ -18,16 +19,17 @@ use Cake\ORM\Entity;
  * @property string $correo
  * @property string $sistemaoperativo
  * @property string $navegador
- * @property \Cake\I18n\Time $fecha_inicio
- * @property \Cake\I18n\Time $fecha_fin
+ * @property \Cake\I18n\FrozenTime $fecha_inicio
+ * @property \Cake\I18n\FrozenTime $fecha_fin
  * @property bool $leido
  * @property int $activo
- * @property \Cake\I18n\Time $created
- * @property \Cake\I18n\Time $modified
+ * @property \Cake\I18n\FrozenTime $created
+ * @property \Cake\I18n\FrozenTime $modified
  *
  * @property \App\Model\Entity\Sistema $sistema
- * @property \App\Model\Entity\Asignado $asignado
- * @property \App\Model\Entity\Peticione[] $peticiones
+ * @property \App\Model\Entity\User $user
+ * @property \App\Model\Entity\BugAnexo[] $bug_anexo
+ * @property \App\Model\Entity\Respuesta[] $respuestas
  */
 class Bug extends Entity
 {

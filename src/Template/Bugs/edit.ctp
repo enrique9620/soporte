@@ -45,7 +45,8 @@ Tbugid = url.split("edit/")[1];
     ?>    
         <?= $this->Html->link(__('<i class="mdi mdi-file-document-box"></i> Listado'), ['controller'=>'Bugs','action' => 'all'],['escape'=>false, 'class'=>'btn btn-info']) ?>
          <p>
-          <h4 class="card-title">Editar Sistema</h4>
+          <h4 class="card-title">Asignar Supervisor</h4>
+          <br>
           <h6 class="card-subtitle"></h6>
           <?= $this->Form->create($bug) ?>
               <div>
@@ -56,8 +57,10 @@ Tbugid = url.split("edit/")[1];
                           <?php
                           echo $this->Form->select(
                             'users_id',$users,
-                            array('id'=>'users_id','empty'=>true, 'class'=>'form-control', 'required', 'style' => 'width: 100%;'));
+                            array('id'=>'users_id','empty'=>true, 'class'=>'form-control', 'required', 'style' => 'width: 100%;', 'placeholder'=>'Seleccione un Supervisor'));
                             ?>
+                            <!--estado ABIERTO al asignar usuario-->
+                            <!-- <//?php echo $this->Form->hidden('estadopeticiones_id', ['value' => $estadopeticione->id]) ?> -->
                         </div>
                       </div> 
                    <br>

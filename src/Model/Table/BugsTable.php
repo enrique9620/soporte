@@ -9,10 +9,11 @@ use Cake\Validation\Validator;
 /**
  * Bugs Model
  *
- * @property \Cake\ORM\Association\BelongsTo $Sistemas
- * @property \Cake\ORM\Association\BelongsTo $Users
- * @property \Cake\ORM\Association\HasMany $BugAnexo
- * @property \Cake\ORM\Association\HasMany $Respuestas
+ * @property \App\Model\Table\SistemasTable|\Cake\ORM\Association\BelongsTo $Sistemas
+ * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
+ * @property |\Cake\ORM\Association\BelongsTo $Estadopeticiones
+ * @property \App\Model\Table\BugAnexoTable|\Cake\ORM\Association\HasMany $BugAnexo
+ * @property \App\Model\Table\RespuestasTable|\Cake\ORM\Association\HasMany $Respuestas
  *
  * @method \App\Model\Entity\Bug get($primaryKey, $options = [])
  * @method \App\Model\Entity\Bug newEntity($data = null, array $options = [])
@@ -50,6 +51,9 @@ class BugsTable extends Table
         $this->belongsTo('Users', [
             'foreignKey' => 'users_id',
             'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('Estadopeticiones', [
+            'foreignKey' => 'estdopeticiones_id'
         ]);
         $this->hasMany('BugAnexo', [
             'foreignKey' => 'bug_id'
@@ -131,6 +135,7 @@ class BugsTable extends Table
         $rules->add($rules->isUnique(['username']));
         $rules->add($rules->existsIn(['sistema_id'], 'Sistemas'));
         $rules->add($rules->existsIn(['users_id'], 'Users'));
+        $rules->add($rules->existsIn(['estdopeticiones_id'], 'Estadopeticiones'));
 
         return $rules;
     }

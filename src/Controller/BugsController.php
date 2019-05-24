@@ -23,6 +23,8 @@ class BugsController extends AppController
         //$this->loadModel('Asignados');
         $this->loadModel('Users');
         $this->loadModel('Respuestas');
+        $this->loadModel('Estadopeticiones');
+        
     }
 
     public function index()
@@ -52,11 +54,11 @@ class BugsController extends AppController
                                                 '<span class="label label-danger" style="font-size:12px;">Cerrado</span>';
             if ($bug['leido']==2) {
                 $bug['activo'] .= '<span class="label label-warning" style="font-size:12px;">Nuevo</span>';
-            }
+            } 
 
             $bug['acciones'] = "<div data-role='group' data-group-type='one-state' class='group-of-buttons'>";
-            $bug['acciones'] .= "<a href='bugs/view/".$bug['id']."' class='button'><i class='fa fa-eye'  aria-hidden='true'></i></a>";
-            $bug['acciones'] .= "<a href='bugs/edit/".$bug['id']."' class='button'><i class='fa fa-user' aria-hidden='true'></i></a>";
+            $bug['acciones'] .= "<a href='bugs/view/".$bug['id']."' class='btn btn-light'><i class='fa fa-eye'  aria-hidden='true'></i></a>";
+            $bug['acciones'] .= "<a href='bugs/edit/".$bug['id']."' class='btn btn-secondary'><i class='fa fa-user' aria-hidden='true'></i></a>";
             $bug['acciones'] .= "</div>";
 
 
@@ -92,8 +94,8 @@ class BugsController extends AppController
                 $bug['activo'] .= '<span class="label label-warning" style="font-size:12px;">Nuevo</span>';
             }
             $bug['acciones'] = "<div data-role='group' data-group-type='one-state' class='group-of-buttons'>";
-            $bug['acciones'] .= "<a href='view/".$bug['id']."' class='button'><i class='fa fa-eye'  aria-hidden='true'></i></a>";
-            $bug['acciones'] .= "<a href='edit/".$bug['id']."' class='button'><i class='fa fa-user' aria-hidden='true'></i></a>";
+            $bug['acciones'] .= "<a href='view/".$bug['id']."' class='btn btn-light'><i class='fa fa-eye'  aria-hidden='true'></i></a>";
+            $bug['acciones'] .= "<a href='edit/".$bug['id']."' class='btn btn-secondary'><i class='fa fa-user' aria-hidden='true'></i></a>";
             $bug['acciones'] .= "</div>";
 
 
@@ -128,8 +130,8 @@ class BugsController extends AppController
                                                 '<span class="label label-danger" style="font-size:12px;">Cerrado</span>';
 
             $bug['acciones'] = "<div data-role='group' data-group-type='one-state' class='group-of-buttons'>";
-            $bug['acciones'] .= "<a href='view/".$bug['id']."' class='button'><i class='fa fa-eye'></i></a>";
-            $bug['acciones'] .= "<a href='edit/".$bug['id']."' class='button'><i class='fa fa-user'></i></a>";
+            $bug['acciones'] .= "<a href='view/".$bug['id']."' class='btn btn-light'><i class='fa fa-eye'></i></a>";
+            $bug['acciones'] .= "<a href='edit/".$bug['id']."' class='btn btn-secondary'><i class='fa fa-user'></i></a>";
             $bug['acciones'] .= "</div>";
         }
         $users = $this->Bugs->Users->find('list', ['limit' => 200]);
@@ -146,15 +148,18 @@ class BugsController extends AppController
      */
     public function view($id = null)
     { 
+        $session = $this->request->session();
+        $usuario = $session->read('Auth.User.id');
+        //dd($usuario);
         $bug = $this->Bugs->get($id, [
             'contain' => ['Sistemas', 'Users', 'Respuestas']
         ]);
-
+        
         foreach ($bug as $value){
             $value['activo'] = ($value['activo'])?'<span class="tag success" style="font-size:12px;">Abierto</span>':
                                                 '<span class="tag alert" style="font-size:12px;">Cerrado</span>';
         }
-
+        //$respuesta = $this->Bugs->Respuestas->find('list', ['limit' => 200]);
         $this->set('bug', $bug);
         $this->set('_serialize', ['bug']);
     } 
@@ -194,6 +199,7 @@ class BugsController extends AppController
         $bug = $this->Bugs->get($id, [
             'contain' => []
         ]);
+        //dd($bug);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $bug = $this->Bugs->patchEntity($bug, $this->request->getData());
             if ($this->Bugs->save($bug)) {

@@ -41,7 +41,6 @@ class RespuestaAnexosController extends AppController
         $respuestaAnexo = $this->RespuestaAnexos->get($id, [
             'contain' => ['Respuestas']
         ]);
-
         $this->set('respuestaAnexo', $respuestaAnexo);
         $this->set('_serialize', ['respuestaAnexo']);
     }

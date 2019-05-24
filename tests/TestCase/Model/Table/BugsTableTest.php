@@ -26,10 +26,11 @@ class BugsTableTest extends TestCase
     public $fixtures = [
         'app.bugs',
         'app.sistemas',
-        'app.asignados',
         'app.users',
-        'app.peticiones',
-        'app.estadopeticiones'
+        'app.bug_anexo',
+        'app.respuestas',
+        'app.estadopeticiones',
+        'app.respuesta_anexos'
     ];
 
     /**
@@ -40,7 +41,7 @@ class BugsTableTest extends TestCase
     public function setUp()
     {
         parent::setUp();
-        $config = TableRegistry::exists('Bugs') ? [] : ['className' => 'App\Model\Table\BugsTable'];
+        $config = TableRegistry::exists('Bugs') ? [] : ['className' => BugsTable::class];
         $this->Bugs = TableRegistry::get('Bugs', $config);
     }
 

@@ -41,13 +41,13 @@ class UsersFixture extends TestFixture
      */
     public $records = [
         [
-            'id' => '8be9a201-53d5-4922-a078-8428943a6102',
+            'id' => '0787ecb9-07c4-42c5-af74-7c08b5295030',
             'username' => 'Lorem ipsum dolor sit amet',
             'password' => 'Lorem ipsum dolor sit amet',
             'nombre' => 'Lorem ipsum dolor sit amet',
             'correo' => 'Lorem ipsum dolor sit amet',
-            'created' => '2019-05-07 13:40:00',
-            'modified' => '2019-05-07 13:40:00'
+            'created' => '2019-05-23 13:20:03',
+            'modified' => '2019-05-23 13:20:03'
         ],
     ];
 }
